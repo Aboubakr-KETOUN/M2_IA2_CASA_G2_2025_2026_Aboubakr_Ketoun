@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globy's Escape</title>
+
+    <!-- p5.js Library (Local) -->
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+
+    <!-- Game Styling -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="loading-screen">
+        <div class="loader-content">
+            <h2>LOADING SYSTEM...</h2>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-container">
+        <h1>Globy's Escape: Evolution of the Predator</h1>
+        <div id="canvas-container"></div>
+        <div id="controls">
+            <p><strong>Controls:</strong> Arrow Keys to move | S or Click to Shoot | 'D' for Debug Mode | 'B' for
+                Boundaries</p>
+        </div>
+        <!-- Hidden file input for loading brains -->
+        <input type="file" id="brain-uploader" style="display: none;" accept=".json">
+
+        <!-- Game Overlays -->
+        <div id="start-overlay" class="game-overlay">
+            <h2>GLOBY'S ESCAPE</h2>
+            <p>Survive the Predators!</p>
+            <button onclick="startGame()">START NEW GAME</button>
+            <button id="checkpoint-btn" onclick="startFromCheckpoint()" style="display: none;">CONTINUE FROM
+                CHECKPOINT</button>
+            <p id="checkpoint-info" style="font-size: 12px; color: #aaa;"></p>
+        </div>
+        <div id="level-complete-overlay" class="game-overlay" style="display: none;">
+            <h2>🎉 LEVEL COMPLETE!</h2>
+            <p id="level-complete-msg">Congratulations!</p>
+            <button onclick="continueToNextLevel()">CONTINUE</button>
+        </div>
+        <div id="gameover-overlay" class="game-overlay" style="display: none;">
+            <h2>GAME OVER</h2>
+            <p id="final-score">Level: 1</p>
+            <button onclick="restartGame()">RESTART FROM LEVEL 1</button>
+            <button id="gameover-checkpoint-btn" onclick="restartFromCheckpoint()" style="display: none;">CONTINUE FROM
+                CHECKPOINT</button>
+        </div>
+    </div>
+
+    <!-- Game Scripts (Order Matters) -->
+    <script src="Vehicle.js"></script>
+    <script src="Player.js"></script>
+    <script src="Arrow.js"></script>
+    <script src="Predator.js"></script>
+
+    <!-- Genetic Algorithm Scripts (Professor's Pattern) -->
+    <script src="dna.js"></script>
+    <script src="rocket.js"></script>
+    <script src="population.js"></script>
+
+    <!-- Legacy AI Training Scripts -->
+    <script src="NeuralNetwork.js"></script>
+    <script src="NeuralPredator.js"></script>
+
+    <script src="sketch.js"></script>
+</body>
+
+</html>

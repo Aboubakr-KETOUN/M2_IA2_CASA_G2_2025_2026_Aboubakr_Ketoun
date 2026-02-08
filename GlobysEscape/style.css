@@ -1,0 +1,147 @@
+body {
+    background-color: #222;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    /* Prevent scrollbars */
+}
+
+#game-container {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Loading Screen Overlay */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-content h2 {
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.progress-bar {
+    width: 300px;
+    height: 4px;
+    background: #333;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    width: 50%;
+    height: 100%;
+    background: #00ff88;
+    position: absolute;
+    left: 0;
+    animation: load 2s infinite ease-in-out;
+}
+
+@keyframes load {
+    0% {
+        left: -100%;
+        width: 50%;
+    }
+
+    50% {
+        left: 25%;
+        width: 75%;
+    }
+
+    100% {
+        left: 100%;
+        width: 50%;
+    }
+}
+
+#canvas-container {
+    margin: 5px auto;
+    border: 2px solid #555;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(51, 51, 51, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+    z-index: 1000;
+    border: 1px solid #555;
+    max-width: 300px;
+    text-align: left;
+}
+
+/* Game Overlays */
+.game-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 40px 60px;
+    border-radius: 16px;
+    text-align: center;
+    z-index: 100;
+    border: 2px solid #00ff88;
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+}
+
+.game-overlay h2 {
+    font-size: 2.5rem;
+    color: #00ff88;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px #00ff88;
+}
+
+.game-overlay p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.game-overlay button {
+    background: #00ff88;
+    color: #111;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.game-overlay button:hover {
+    background: #00cc6a;
+    transform: scale(1.05);
+}
